@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Commerce Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        button {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e7272;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile Commerce FrameWork</h1>
+    </header>
+    <div class="content">
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question">
+                <h3>1. What are the three primary planes of the mobile commerce framework?</h3>
+                <label><input type="radio" name="q1" value="Hardware, Software, Network">Hardware, Software, Network</label><br>
+                <label><input type="radio" name="q1" value="User Plane, Developer and Provider Plane, Infrastructure Layers">User Plane, Developer and Provider Plane, Infrastructure Layers</label><br>
+                <label><input type="radio" name="q1" value="E-commerce, M-commerce, Social Commerce">E-commerce, M-commerce, Social Commerce</label>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question">
+                <h3>2. Which of the following is NOT a component of Wireless Network Infrastructure?</h3>
+                <label><input type="radio" name="q2" value="Router">Router</label><br>
+                <label><input type="radio" name="q2" value="Access Point">Access Point</label><br>
+                <label><input type="radio" name="q2" value="Web Browser">Web Browser</label>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question">
+                <h3>3. What is the primary function of Mobile Middleware in an m-commerce framework?</h3>
+                <label><input type="radio" name="q3" value="Manufacturing mobile devices">Manufacturing mobile devices</label><br>
+                <label><input type="radio" name="q3" value="Acting as an intermediary between the network and user-facing applications">Acting as an intermediary between the network and user-facing applications</label><br>
+                <label><input type="radio" name="q3" value="Selling products online">Selling products online</label>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question">
+                <h3>4. Which of the following is a real-world example of Mobile Middleware in action?</h3>
+                <label><input type="radio" name="q4" value="A router providing internet access">A router providing internet access</label><br>
+                <label><input type="radio" name="q4" value="Uber's app synchronizing trip data across devices">Uber's app synchronizing trip data across devices</label><br>
+                <label><input type="radio" name="q4" value="A smartwatch displaying time">A smartwatch displaying time</label>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question">
+                <h3>5. What is the role of Content Delivery Networks (CDNs) in Mobile Middleware?</h3>
+                <label><input type="radio" name="q5" value="Secure user data">Secure user data</label><br>
+                <label><input type="radio" name="q5" value="Accelerate content delivery by caching data">Accelerate content delivery by caching data</label><br>
+                <label><input type="radio" name="q5" value="Provide financial transactions">Provide financial transactions</label>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question">
+                <h3>6. Which of the following is NOT a function of Mobile Commerce Applications (User Plane)?</h3>
+                <label><input type="radio" name="q6" value="Proactive Service Management">Proactive Service Management</label><br>
+                <label><input type="radio" name="q6" value="Inventory Management">Inventory Management</label><br>
+                <label><input type="radio" name="q6" value="Telecommunications Infrastructure">Telecommunications Infrastructure</label>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question">
+                <h3>7. What technology does Starbucks' mobile app use for contactless payments?</h3>
+                <label><input type="radio" name="q7" value="Bluetooth">Bluetooth</label><br>
+                <label><input type="radio" name="q7" value="Wi-Fi">Wi-Fi</label><br>
+                <label><input type="radio" name="q7" value="NFC (Near Field Communication)">NFC (Near Field Communication)</label>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question">
+                <h3>8. Which of these is an example of a Payment Service Provider in m-commerce?</h3>
+                <label><input type="radio" name="q8" value="AWS">AWS</label><br>
+                <label><input type="radio" name="q8" value="Stripe">Stripe</label><br>
+                <label><input type="radio" name="q8" value="Netflix">Netflix</label>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question">
+                <h3>9. What is the purpose of Protocol Optimization in m-commerce?</h3>
+                <label><input type="radio" name="q9" value="Reducing latency and improving communication efficiency">Reducing latency and improving communication efficiency</label><br>
+                <label><input type="radio" name="q9" value="Increasing product prices">Increasing product prices</label><br>
+                <label><input type="radio" name="q9" value="Blocking unauthorized users from networks">Blocking unauthorized users from networks</label>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question">
+                <h3>10. What compression technique is commonly used for optimizing data transmission in mobile commerce?</h3>
+                <label><input type="radio" name="q10" value="ZIP">ZIP</label><br>
+                <label><input type="radio" name="q10" value="Gzip">Gzip</label><br>
+                <label><input type="radio" name="q10" value="HTML">HTML</label>
+            </div>
+
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 10;
+            var form = document.getElementById('quizForm');
+            var result = document.getElementById('result');
+
+            // Check answers
+            if (form.q1.value == "User Plane, Developer and Provider Plane, Infrastructure Layers") score++;
+            if (form.q2.value == "Web Browser") score++;
+            if (form.q3.value == "Acting as an intermediary between the network and user-facing applications") score++;
+            if (form.q4.value == "Uber's app synchronizing trip data across devices") score++;
+            if (form.q5.value == "Accelerate content delivery by caching data") score++;
+            if (form.q6.value == "Telecommunications Infrastructure") score++;
+            if (form.q7.value == "NFC (Near Field Communication)") score++;
+            if (form.q8.value == "Stripe") score++;
+            if (form.q9.value == "Reducing latency and improving communication efficiency") score++;
+            if (form.q10.value == "Gzip") score++;
+
+            result.textContent = "Your score is " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>

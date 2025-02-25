@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communication Technologies Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        button {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e7272;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Satellite Applications</h1>
+    </header>
+    <div class="content">
+        <form id="quizForm">
+            <!-- Satellite Applications -->
+            <div class="question">
+                <h3>1. What type of satellite TV service requires a large dish antenna and is typically used by businesses and cable providers?</h3>
+                <label><input type="radio" name="q1" value="Direct Broadcast Satellite (DBS)">Direct Broadcast Satellite (DBS)</label><br>
+                <label><input type="radio" name="q1" value="Fixed Satellite Service (FSS)">Fixed Satellite Service (FSS)</label><br>
+                <label><input type="radio" name="q1" value="Internet Protocol TV (IPTV)">Internet Protocol TV (IPTV)</label>
+            </div>
+            <div class="question">
+                <h3>2. Which Indian satellite system provides regional navigation services?</h3>
+                <label><input type="radio" name="q2" value="GPS">GPS</label><br>
+                <label><input type="radio" name="q2" value="Galileo">Galileo</label><br>
+                <label><input type="radio" name="q2" value="NAVIC">NAVIC</label>
+            </div>
+            <div class="question">
+                <h3>3. What is the primary use of satellite phones in India?</h3>
+                <label><input type="radio" name="q3" value="Entertainment purposes">Entertainment purposes</label><br>
+                <label><input type="radio" name="q3" value="Communication in remote areas and emergencies">Communication in remote areas and emergencies</label><br>
+                <label><input type="radio" name="q3" value="Online gaming">Online gaming</label>
+            </div>
+            <div class="question">
+                <h3>4. Which organization regulates satellite phones in India?</h3>
+                <label><input type="radio" name="q4" value="TRAI">TRAI</label><br>
+                <label><input type="radio" name="q4" value="DoT">DoT</label><br>
+                <label><input type="radio" name="q4" value="ISRO">ISRO</label>
+            </div>
+
+            <!-- Mobile Communication -->
+            <div class="question">
+                <h3>5. What is the main challenge of spectrum congestion in mobile communications?</h3>
+                <label><input type="radio" name="q5" value="High call quality">High call quality</label><br>
+                <label><input type="radio" name="q5" value="Unlimited bandwidth availability">Unlimited bandwidth availability</label><br>
+                <label><input type="radio" name="q5" value="Interference and call drop issues">Interference and call drop issues</label>
+            </div>
+            <div class="question">
+                <h3>6. In a cellular network, what technique is used to reuse frequencies in different geographic locations?</h3>
+                <label><input type="radio" name="q6" value="Frequency hopping">Frequency hopping</label><br>
+                <label><input type="radio" name="q6" value="Frequency reuse">Frequency reuse</label><br>
+                <label><input type="radio" name="q6" value="Time-division multiplexing">Time-division multiplexing</label>
+            </div>
+            <div class="question">
+                <h3>7. Which of the following broadband technologies provides internet via normal telephone lines?</h3>
+                <label><input type="radio" name="q7" value="Fiber-optic broadband">Fiber-optic broadband</label><br>
+                <label><input type="radio" name="q7" value="Satellite broadband">Satellite broadband</label><br>
+                <label><input type="radio" name="q7" value="DSL">DSL</label>
+            </div>
+            <div class="question">
+                <h3>8. What is the key difference between ADSL and SDSL?</h3>
+                <label><input type="radio" name="q8" value="ADSL provides equal upload and download speeds">ADSL provides equal upload and download speeds</label><br>
+                <label><input type="radio" name="q8" value="SDSL is faster than ADSL">SDSL is faster than ADSL</label><br>
+                <label><input type="radio" name="q8" value="ADSL has higher download speed than upload speed">ADSL has higher download speed than upload speed</label>
+            </div>
+
+            <!-- Wireless Application Protocol (WAP) -->
+            <div class="question">
+                <h3>9. Which layer of WAP ensures secure data transmission?</h3>
+                <label><input type="radio" name="q9" value="Wireless Transport Layer Security (WTLS)">Wireless Transport Layer Security (WTLS)</label><br>
+                <label><input type="radio" name="q9" value="Wireless Application Environment (WAE)">Wireless Application Environment (WAE)</label><br>
+                <label><input type="radio" name="q9" value="Wireless Session Protocol (WSP)">Wireless Session Protocol (WSP)</label>
+            </div>
+            <div class="question">
+                <h3>10. What is the function of a WAP Gateway?</h3>
+                <label><input type="radio" name="q10" value="Enhances battery life of mobile devices">Enhances battery life of mobile devices</label><br>
+                <label><input type="radio" name="q10" value="Converts HTML pages to WML for mobile browsing">Converts HTML pages to WML for mobile browsing</label><br>
+                <label><input type="radio" name="q10" value="Improves Wi-Fi signal strength">Improves Wi-Fi signal strength</label>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 10;
+            var form = document.getElementById('quizForm');
+            var result = document.getElementById('result');
+
+            // Check answers
+            if (form.q1.value == "Fixed Satellite Service (FSS)") score++;
+            if (form.q2.value == "NAVIC") score++;
+            if (form.q3.value == "Communication in remote areas and emergencies") score++;
+            if (form.q4.value == "DoT") score++;
+            if (form.q5.value == "Interference and call drop issues") score++;
+            if (form.q6.value == "Frequency reuse") score++;
+            if (form.q7.value == "DSL") score++;
+            if (form.q8.value == "ADSL has higher download speed than upload speed") score++;
+            if (form.q9.value == "Wireless Transport Layer Security (WTLS)") score++;
+            if (form.q10.value == "Converts HTML pages to WML for mobile browsing") score++;
+
+            result.textContent = "Your score is " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>

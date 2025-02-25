@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contracts Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        button {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e7272;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile Devices</h1>
+    </header>
+    <div class="content">
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. What is a mobile device?</h3>
+                <label><input type="radio" name="q1" value="A large computing device with a physical keyboard"> A large computing device with a physical keyboard</label><br>
+                <label><input type="radio" name="q1" value="A small, portable computing device with a display screen and wireless connectivity">A small, portable computing device with a display screen and wireless connectivity</label><br>
+                <label><input type="radio" name="q1" value="A desktop computer with internet access">A desktop computer with internet access</label>
+            </div>
+            <div class="question">
+                <h3>2. Which of the following is NOT a type of mobile device?</h3>
+                <label><input type="radio" name="q2" value="Laptop">Laptop</label><br>
+                <label><input type="radio" name="q2" value="Desktop Computer">Desktop Computer</label><br>
+                <label><input type="radio" name="q2" value="Tablet">Tablet</label>
+            </div>
+            <div class="question">
+                <h3>3. Which type of mobile device combines a rotating touch screen with handwriting recognition software?</h3>
+                <label><input type="radio" name="q3" value="Slate Tablet">Slate Tablet</label><br>
+                <label><input type="radio" name="q3" value="Hybrid Tablet">Hybrid Tablet</label><br>
+                <label><input type="radio" name="q3" value="Convertible Tablet">Convertible Tablet</label>
+            </div>
+            <div class="question">
+                <h3>4. What is a wearable computer?</h3>
+                <label><input type="radio" name="q4" value="A handheld gaming console">A handheld gaming console</label><br>
+                <label><input type="radio" name="q4" value="A computer designed to be worn as an accessory">A computer designed to be worn as an accessory</label><br>
+                <label><input type="radio" name="q4" value="A high-end server used for computing">A high-end server used for computing</label>
+            </div>
+            <div class="question">
+                <h3>5. Which of the following is an example of a wearable computer?</h3>
+                <label><input type="radio" name="q5" value=" Laptop"> Laptop</label><br>
+                <label><input type="radio" name="q5" value="Smartwatch">Smartwatch</label><br>
+                <label><input type="radio" name="q5" value="Tablet">Tablet</label>
+            </div>
+            <div class="question">
+                <h3>6. Which of the following is NOT a feature of an Ultra-Mobile PC (UMPC)?</h3>
+                <label><input type="radio" name="q6" value="Compact handheld size">Compact handheld size</label><br>
+                <label><input type="radio" name="q6" value="Runs Windows OS">Runs Windows OS</label><br>
+                <label><input type="radio" name="q6" value="Only used for making calls">Only used for making calls</label>
+            </div>
+            <div class="question">
+                <h3>7. What is the primary function of a Carputer?</h3>
+                <label><input type="radio" name="q7" value="Internet browsing">Internet browsing</label><br>
+                <label><input type="radio" name="q7" value="Vehicle multimedia and navigation">Vehicle multimedia and navigation</label><br>
+                <label><input type="radio" name="q7" value="Mobile gaming">Mobile gaming</label>
+            </div>
+            <div class="question">
+                <h3>8. What is a key feature of a Mobile Internet Device (MID)?</h3>
+                <label><input type="radio" name="q8" value="Works only with wired internet">Works only with wired internet</label><br>
+                <label><input type="radio" name="q8" value="Used for multimedia entertainment and location-based services">Used for multimedia entertainment and location-based services</label><br>
+                <label><input type="radio" name="q8" value="Requires a SIM card for functioning">Requires a SIM card for functioning</label>
+            </div>
+            <div class="question">
+                <h3>9. Which of the following is NOT a mobile network operator (MNO)?</h3>
+                <label><input type="radio" name="q9" value="AT&T">AT&T</label><br>
+                <label><input type="radio" name="q9" value="Vodafone">Vodafone</label><br>
+                <label><input type="radio" name="q9" value="Amazon">Amazon</label>
+            </div>
+            <div class="question">
+                <h3>10.	What do MNOs require to operate?</h3>
+                <label><input type="radio" name="q10" value="A dedicated fiber optic network">A dedicated fiber optic network</label><br>
+                <label><input type="radio" name="q10" value="A radio spectrum license from the government">A radio spectrum license from the government</label><br>
+                <label><input type="radio" name="q10" value="A local Wi-Fi connection">A local Wi-Fi connection</label>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 10;
+            var form = document.getElementById('quizForm');
+            var result = document.getElementById('result');
+
+            // Check answers
+            if (form.q1.value == "A small, portable computing device with a display screen and wireless connectivity") score++;
+            if (form.q2.value == "Desktop Computer") score++;
+            if (form.q3.value == "Convertible Tablet") score++;
+            if (form.q4.value == "A computer designed to be worn as an accessory") score++;
+            if (form.q5.value == "Smartwatch") score++;
+            if (form.q6.value == "Only used for making calls") score++;
+            if (form.q7.value == "Vehicle multimedia and navigation") score++;
+            if (form.q8.value == "Used for multimedia entertainment and location-based services") score++;
+            if (form.q9.value == "Amazon") score++;
+            if (form.q10.value == "A radio spectrum license from the government") score++;
+
+            result.textContent = "Your score is " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>

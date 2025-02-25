@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contracts Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        button {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e7272;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile Application Development</h1>
+    </header>
+    <div class="content">
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. What is an example of a location-based application?</h3>
+                <label><input type="radio" name="q1" value="Instagram">Instagram</label><br>
+                <label><input type="radio" name="q1" value="Google Maps">Google Maps</label><br>
+                <label><input type="radio" name="q1" value="Amazon">Amazon</label>
+            </div>
+            <div class="question">
+                <h3>2. Which of the following is an example of a mobile money transfer application?</h3>
+                <label><input type="radio" name="q2" value="Hotstar">Hotstar</label><br>
+                <label><input type="radio" name="q2" value="Paytm Mall">Paytm Mall</label><br>
+                <label><input type="radio" name="q2" value="PhonePe">PhonePe</label>
+            </div>
+            <div class="question">
+                <h3>3. What type of mobile application helps teams collaborate and manage tasks remotely?</h3>
+                <label><input type="radio" name="q3" value="Google Drive">Google Drive</label><br>
+                <label><input type="radio" name="q3" value="Paytm Mall">Paytm Mall</label><br>
+                <label><input type="radio" name="q3" value="Slack">Slack</label>
+            </div>
+            <div class="question">
+                <h3>4. What is the primary difference between analog and digital signals?</h3>
+                <label><input type="radio" name="q4" value="Analog signals are continuous, while digital signals are discrete">Analog signals are continuous, while digital signals are discrete</label><br>
+                <label><input type="radio" name="q4" value="Analog signals use binary data, while digital signals do not">Analog signals use binary data, while digital signals do not</label><br>
+                <label><input type="radio" name="q4" value="Digital signals use amplitude modulation, while analog signals use frequency modulation">Digital signals use amplitude modulation, while analog signals use frequency modulation</label>
+            </div>
+            <div class="question">
+                <h3>5. Which of the following is an example of an analog communication system?</h3>
+                <label><input type="radio" name="q5" value="Telephone networks">Telephone networks</label><br>
+                <label><input type="radio" name="q5" value="Computers">Computers</label><br>
+                <label><input type="radio" name="q5" value="Mobile phones">Mobile phones</label>
+            </div>
+            <div class="question">
+                <h3>6. What is an example of a broadcasting service?</h3>
+                <label><input type="radio" name="q6" value="FM Radio">FM Radio</label><br>
+                <label><input type="radio" name="q6" value="Wi-Fi">Wi-Fi</label><br>
+                <label><input type="radio" name="q6" value="GPS">GPS</label>
+            </div>
+            <div class="question">
+                <h3>7. Which wireless communication technology is used for navigation and tracking purposes?</h3>
+                <label><input type="radio" name="q7" value="Bluetooth">Bluetooth</label><br>
+                <label><input type="radio" name="q7" value="GPS">GPS</label><br>
+                <label><input type="radio" name="q7" value="Wi-Fi">Wi-Fi</label>
+            </div>
+            <div class="question">
+                <h3>8. What type of electromagnetic waves do mobile communication systems primarily use?</h3>
+                <label><input type="radio" name="q8" value="Radio Waves">Radio Waves</label><br>
+                <label><input type="radio" name="q8" value="Infrared Waves">Infrared Waves</label><br>
+                <label><input type="radio" name="q8" value="X-Rays">X-Rays</label>
+            </div>
+            <div class="question">
+                <h3>9. Which multiplexing technique assigns each signal a unique time slot?</h3>
+                <label><input type="radio" name="q9" value="Frequency Division Multiplexing (FDM)">Frequency Division Multiplexing (FDM)</label><br>
+                <label><input type="radio" name="q9" value="Time Division Multiplexing (TDM)">Time Division Multiplexing (TDM)</label><br>
+                <label><input type="radio" name="q9" value="Code Division Multiplexing (CDM)">Code Division Multiplexing (CDM)</label>
+            </div>
+            <div class="question">
+                <h3>10. What technique does CDMA use to differentiate between multiple signals?</h3>
+                <label><input type="radio" name="q10" value="Frequency bands">Frequency bands</label><br>
+                <label><input type="radio" name="q10" value="Unique codes">Unique codes</label><br>
+                <label><input type="radio" name="q10" value="Amplitude levels">Amplitude levels</label>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 10;
+            var form = document.getElementById('quizForm');
+            var result = document.getElementById('result');
+
+            // Check answers
+            if (form.q1.value == "Google Maps") score++;
+            if (form.q2.value == "PhonePe") score++;
+            if (form.q3.value == "Slack") score++;
+            if (form.q4.value == "Analog signals are continuous, while digital signals are discrete") score++;
+            if (form.q5.value == "Telephone networks") score++;
+            if (form.q6.value == "FM Radio") score++;
+            if (form.q7.value == "GPS") score++;
+            if (form.q8.value == "Radio Waves") score++;
+            if (form.q9.value == "Time Division Multiplexing (TDM)") score++;
+            if (form.q10.value == "Unique codes") score++;
+
+            result.textContent = "Your score is " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>

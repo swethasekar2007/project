@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generation Based services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        button {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e7272;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mobile Communication Technologies Quiz</h1>
+    </header>
+    <div class="content">
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. What was the primary limitation of 1G mobile communication technology?</h3>
+                <label><input type="radio" name="q1" value="High-speed internet access">High-speed internet access</label><br>
+                <label><input type="radio" name="q1" value="Poor security and frequent call drops">Poor security and frequent call drops</label><br>
+                <label><input type="radio" name="q1" value="Advanced data encryption">Advanced data encryption</label>
+            </div>
+            <div class="question">
+                <h3>2. What frequency band did AMPS operate in?</h3>
+                <label><input type="radio" name="q2" value="1800 MHz">1800 MHz</label><br>
+                <label><input type="radio" name="q2" value="800 MHz">800 MHz</label><br>
+                <label><input type="radio" name="q2" value="2100 MHz">2100 MHz</label>
+            </div>
+            <div class="question">
+                <h3>3. Which technology was widely used for 2G mobile communication?</h3>
+                <label><input type="radio" name="q3" value="AMPS">AMPS</label><br>
+                <label><input type="radio" name="q3" value="GSM">GSM</label><br>
+                <label><input type="radio" name="q3" value="LTE">LTE</label>
+            </div>
+            <div class="question">
+                <h3>4. What feature was introduced in 2G to enhance security?</h3>
+                <label><input type="radio" name="q4" value="Encrypted digital communication">Encrypted digital communication</label><br>
+                <label><input type="radio" name="q4" value="High-frequency band transmission">High-frequency band transmission</label><br>
+                <label><input type="radio" name="q4" value="Full duplex transmission">Full duplex transmission</label>
+            </div>
+            <div class="question">
+                <h3>5. What is the key advantage of UMTS (3G) over 2G networks?</h3>
+                <label><input type="radio" name="q5" value="Higher data speeds">Higher data speeds</label><br>
+                <label><input type="radio" name="q5" value="Analog voice transmission">Analog voice transmission</label><br>
+                <label><input type="radio" name="q5" value="Lower latency than 5G">Lower latency than 5G</label>
+            </div>
+            <div class="question">
+                <h3>6. What was the maximum speed supported by HSPA (3G)?</h3>
+                <label><input type="radio" name="q6" value="2 Mbps">2 Mbps</label><br>
+                <label><input type="radio" name="q6" value="14.4 Mbps">14.4 Mbps</label><br>
+                <label><input type="radio" name="q6" value="100 Mbps">100 Mbps</label>
+            </div>
+            <div class="question">
+                <h3>7. Which technology was introduced with 4G to improve data rates and efficiency?</h3>
+                <label><input type="radio" name="q7" value="CDMA2000">CDMA2000</label><br>
+                <label><input type="radio" name="q7" value="LTE">LTE</label><br>
+                <label><input type="radio" name="q7" value="AMPS">AMPS</label>
+            </div>
+            <div class="question">
+                <h3>8. What is the key feature of LTE-Advanced (LTE-A)?</h3>
+                <label><input type="radio" name="q8" value="Supports 1 Gbps speeds">Supports 1 Gbps speeds</label><br>
+                <label><input type="radio" name="q8" value="Operates in the 800 MHz band only">Operates in the 800 MHz band only</label><br>
+                <label><input type="radio" name="q8" value="Uses circuit-switched communication">Uses circuit-switched communication</label>
+            </div>
+            <div class="question">
+                <h3>9. Which of the following is a major benefit of 5G over 4G?</h3>
+                <label><input type="radio" name="q9" value="Lower latency (<1 ms)">Lower latency (&lt;1 ms)</label><br>
+                <label><input type="radio" name="q9" value="Uses only FDMA for access">Uses only FDMA for access</label><br>
+                <label><input type="radio" name="q9" value="Limited IoT support">Limited IoT support</label>
+            </div>
+            <div class="question">
+                <h3>10. What technology helps improve spectral efficiency in 5G?</h3>
+                <label><input type="radio" name="q10" value="NOMA">NOMA</label><br>
+                <label><input type="radio" name="q10" value="EDGE">EDGE</label><br>
+                <label><input type="radio" name="q10" value="AMPS">AMPS</label>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 10;
+            var form = document.getElementById('quizForm');
+            var result = document.getElementById('result');
+
+            // Check answers
+            if (form.q1.value == "Poor security and frequent call drops") score++;
+            if (form.q2.value == "800 MHz") score++;
+            if (form.q3.value == "GSM") score++;
+            if (form.q4.value == "Encrypted digital communication") score++;
+            if (form.q5.value == "Higher data speeds") score++;
+            if (form.q6.value == "14.4 Mbps") score++;
+            if (form.q7.value == "LTE") score++;
+            if (form.q8.value == "Supports 1 Gbps speeds") score++;
+            if (form.q9.value == "Lower latency (<1 ms)") score++;
+            if (form.q10.value == "NOMA") score++;
+
+            result.textContent = "Your score is " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>

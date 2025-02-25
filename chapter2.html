@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contracts Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 20px;
+        }
+        button {
+            background-color: #5c9b9b;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e7272;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .result {
+            margin-top: 30px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Business Models</h1>
+    </header>
+    <div class="content">
+        <form id="quizForm">
+            <div class="question">
+                <h3>1. What is a business model in the context of mobile commerce?</h3>
+                <label><input type="radio" name="q1" value="A legal document for businesses">A legal document for businesses</label><br>
+                <label><input type="radio" name="q1" value="A framework describing how an organization operates and generates revenue>A framework describing how an organization operates and generates revenue</label><br>
+                <label><input type="radio" name="q1" value="A pricing strategy for products">A pricing strategy for products</label>
+            </div>
+            <div class="question">
+                <h3>2. Which of the following is an example of a User Fee Business Model?</h3>
+                <label><input type="radio" name="q2" value="YouTube">YouTube</label><br>
+                <label><input type="radio" name="q2" value="Netflix">Netflix</label><br>
+                <label><input type="radio" name="q2" value="Amazon Ads">Amazon Ads</label>
+            </div>
+            <div class="question">
+                <h3>3. What is a key advantage of the User Fee Business Model?</h3>
+                <label><input type="radio" name="q3" value="High dependency on advertisements">High dependency on advertisements</label><br>
+                <label><input type="radio" name="q3" value="Predictable revenue through recurring fees">Predictable revenue through recurring fees</label><br>
+                <label><input type="radio" name="q3" value="Limited customer flexibility">Limited customer flexibility</label>
+            </div>
+            <div class="question">
+                <h3>4. Which technology is commonly used in the Shopping Business Model?</h3>
+                <label><input type="radio" name="q4" value="AI for Personalization">AI for Personalization</label><br>
+                <label><input type="radio" name="q4" value="Blockchain Mining">Blockchain Mining</label><br>
+                <label><input type="radio" name="q4" value="Virtual Reality">Virtual Reality</label>
+            </div>
+            <div class="question">
+                <h3>5. What is a major disadvantage of the Shopping Business Model?</h3>
+                <label><input type="radio" name="q5" value="Limited accessibility">Limited accessibility</label><br>
+                <label><input type="radio" name="q5" value="High competition and logistical challenges">High competition and logistical challenges</label><br>
+                <label><input type="radio" name="q5" value="Lack of global reach">Lack of global reach</label>
+            </div>
+            <div class="question">
+                <h3>6. Which of the following companies is an example of the Marketing Business Model?</h3>
+                <label><input type="radio" name="q6" value="Tesla">Tesla</label><br>
+                <label><input type="radio" name="q6" value="Google Ads">Google Ads</label><br>
+                <label><input type="radio" name="q6" value="Shopify">Shopify</label>
+            </div>
+            <div class="question">
+                <h3>7. A major challenge of the Marketing Business Model is:</h3>
+                <label><input type="radio" name="q7" value="Scalability">Scalability</label><br>
+                <label><input type="radio" name="q7" value="User privacy concerns">User privacy concerns</label><br>
+                <label><input type="radio" name="q7" value="Low return on investment (ROI)">Low return on investment (ROI)</label>
+            </div>
+            <div class="question">
+                <h3>8. How does the Advertising Business Model generate revenue?</h3>
+                <label><input type="radio" name="q8" value="By charging subscription fees">By charging subscription fees</label><br>
+                <label><input type="radio" name="q8" value="Through ad placements and sponsorships">Through ad placements and sponsorships</label><br>
+                <label><input type="radio" name="q8" value="By selling physical products">By selling physical products</label>
+            </div>
+            <div class="question">
+                <h3>9. Which of the following is a real-time application of the Advertising Business Model?</h3>
+                <label><input type="radio" name="q9" value="Spotify Free Tier">Spotify Free Tier</label><br>
+                <label><input type="radio" name="q9" value="Amazon Prime Video">Amazon Prime Video</label><br>
+                <label><input type="radio" name="q9" value="Microsoft Teams">Microsoft Teams</label>
+            </div>
+            <div class="question">
+                <h3>10.	In the Revenue-Sharing Business Model, revenue is shared between:</h3>
+                <label><input type="radio" name="q10" value="Customers and companies">Customers and companies</label><br>
+                <label><input type="radio" name="q10" value="Companies and partners/creators">Companies and partners/creators</label><br>
+                <label><input type="radio" name="q10" value="Government and businesses">Government and businesses</label>
+            </div>
+            <button type="button" onclick="submitQuiz()">Submit Quiz</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitQuiz() {
+            var score = 0;
+            var totalQuestions = 10;
+            var form = document.getElementById('quizForm');
+            var result = document.getElementById('result');
+
+            // Check answers
+            if (form.q1.value == "A framework describing how an organization operates and generates revenue") score++;
+            if (form.q2.value == "Netflix") score++;
+            if (form.q3.value == "Predictable revenue through recurring fees") score++;
+            if (form.q4.value == "AI for Personalization") score++;
+            if (form.q5.value == "High competition and logistical challenges") score++;
+            if (form.q6.value == "Google Ads") score++;
+            if (form.q7.value == "User privacy concerns") score++;
+            if (form.q8.value == "Through ad placements and sponsorships") score++;
+            if (form.q9.value == "Spotify Free Tier") score++;
+            if (form.q10.value == "Companies and partners/creators") score++;
+
+            result.textContent = "Your score is " + score + " out of " + totalQuestions;
+        }
+    </script>
+</body>
+</html>
